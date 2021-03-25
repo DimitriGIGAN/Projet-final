@@ -1,0 +1,72 @@
+html{
+    background-color: #021288;
+    
+}
+body{
+background-color: rgb(99, 30, 226);
+color: white;
+}
+.form-control{
+    background-color: #021288 !important ;
+}
+.question{
+    background-color: #021288 ;   
+     padding: 1rem!important;
+
+}
+.navbar{
+    background-color: #021288;
+}
+input 
+{
+    border-radius: 500px;
+}
+.reunion{
+    text-shadow: 2px 2px 2px black;
+background:   rgb(99, 30, 226); }
+.intro{
+    text-shadow: 2px 2px 2px black; 
+  }
+  .caris{
+    background: url(IMG/recette.jpg);
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  }
+  .saucisse{
+    background: url(IMG/saucisse.jpg);
+    background-size: initial;
+    text-shadow: 2px 2px 2px black; 
+  }
+  .porc{
+    background: url(IMG/porc.jpg);
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  
+  }
+  .preparation{
+    background: url(IMG/preparation.jpg);
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  }
+  .ingredient{
+    background: linear-gradient(90deg, rgba(11,121,9,1) 0%, rgba(0,212,255,1) 100%);
+  
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  
+  }
+  .Information{
+    background: linear-gradient(90deg, rgba(11,121,9,1) 0%, rgba(0,212,255,1) 100%);
+  
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  }
+  .servir{
+    background: linear-gradient(90deg, rgba(11,121,9,1) 0%, rgba(0,212,255,1) 100%);
+  
+    background-size: cover;
+    text-shadow: 2px 2px 2px black; 
+  }
+  .Impot{
+    width: 890px;
+  }
