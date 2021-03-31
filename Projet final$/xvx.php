@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <title>Accueil</title>
+
 </head>
 
 <body>
@@ -76,94 +78,127 @@
       <div class="col-4"></div>
     </div>
     <!--formulaire debut -->
+    <form action="recrute.php" method="post">
     <div class="row m-5">
-      <div class="col-3">
+      <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="text" class="form-control" name="nom" placeholder="">
           <label for="floatingInput">Nom</label>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="text" class="form-control" name="prenom" placeholder="">
           <label for="floatingInput">Prenom</label>
         </div>
         
       </div>
-      <div class="col-6">
 
-        
-        
-      </div>
     </div>
     
     <div class="row m-5">
-      <div class="col-3">
+      <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="number" class="form-control" name="num" placeholder="+262">
           <label for="floatingInput">Numéro </label>
         </div>
       </div>
-      <div class="col-3">
+      <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="email" class="form-control" name="email" placeholder="name@example.com">
           <label for="floatingInput">Email</label>
         </div>
       </div>
     </div>
-    <div class="col-6"></div>
+  
     <div class="row m-5">
-      <div class="col-3">
+      <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+          <input type="address" class="form-control" name="address" placeholder="3 allez des zinnias">
           <label for="floatingInput">Adresse </label>
         </div>
         
       </div>
       <div class="col-3">
-        <div class="row">
-          <div class="col-6">
+      
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="postal" class="form-control" name="postal" placeholder="97490">
               <label for="floatingInput">Code postal</label>
             </div>
           </div>
 
-          <div class="col-6">
+          <div class="col-3">
             <div class="form-floating mb-3">
-              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+              <input type="ville" class="form-control" name="ville" placeholder="vile">
               <label for="floatingInput">Ville</label>
             </div>
           </div>
         </div>
-      </div>
-          <!--formulaire debut -->
+          <!--debut question-->
+          <div class="row border mt-5 m-5 question">
+       
+          <div class="col-12 ">
+          <?php
+                    // Include config file
+                    require_once "config.php";
+                    
+                    // Attempt select query execution
+                    $sql = "SELECT * FROM employees";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            echo '<table  ">';
+                                echo "<thead>";
+                                    echo "<tr>";
+                            
+                                        echo "<th>Name</th>";
 
+                                        echo "<th>Action</th>";
+                                    echo "</tr>";
+                                echo "</thead>";
+                                echo "<tbody>";
+                                while($row = mysqli_fetch_array($result)){
+                                    echo "<tr>";
+                                     
+                                        echo "<td>" . $row['name'] . "</td>";
 
-        <!--debut question-->
-        <div class="row border border-info mt-5 m-5 question">
-          <div class="col-10 text-justify">
-            <p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet
-              fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex
-              communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem
-              certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+                                        echo "<td>";
+                                            echo '              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              Oui
+                                            </label>';
+                                            echo ' <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                            <label class="form-check-label" for="flexRadioDefault1">
+                                              Non
+                                            </label>';
+                                           
+                                        echo "</td>";
+                                    echo "</tr>";
+                                }
+                                echo "</tbody>";                            
+                            echo "</table>";
+                            // Free result set
+                            mysqli_free_result($result);
+                        } else{
+                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
+                        }
+                    } else{
+                        echo "Oops! Something went wrong. Please try again later.";
+                    }
+ 
+                    // Close connection
+                    mysqli_close($link);
+                    ?>
           </div>
-          <div class="col-2 ">
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Oui
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Non
-              </label>
-            </div>
-          </div>
-        </div>
+         
         <!--fin question-->
+        <input type="submit" value="Submit">
+</form> <!--formulaire fin -->
+      </div>
+
+
+
+
+      
 </div>
 
     </div>
