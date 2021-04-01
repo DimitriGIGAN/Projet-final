@@ -13,7 +13,7 @@ if($link === false){
 $sql = "UPDATE employees SET name='".$_POST["name"]."' WHERE id='$id'";
 if(isset($_POST["modifier"])){
     echo "Records were updated successfully.";
-    header("location:question.php");
+  
 } else {
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }

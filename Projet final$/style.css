@@ -20,29 +20,6 @@ input
     border-radius: 500px;
 }
 
-.intro{
-    text-shadow: 2px 2px 2px black; 
-  }
-  .caris{
-    background: url(IMG/recette.jpg);
-    background-size: cover;
-    text-shadow: 2px 2px 2px black; 
-  }
-  .saucisse{
-    background: url(IMG/saucisse.jpg);
-    background-size: initial;
-    text-shadow: 2px 2px 2px black; 
-  }
-  .porc{
-    background: url(IMG/porc.jpg);
-    background-size: cover;
-    text-shadow: 2px 2px 2px black; 
-  
-  }
-
-  .Impot{
-    width: 890px;
-  }
   .table-responsive {
     margin: 30px 0;
 }

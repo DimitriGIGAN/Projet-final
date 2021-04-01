@@ -114,7 +114,7 @@
     <div class="row m-5">
       <div class="col-6">
         <div class="form-floating mb-3">
-          <input type="address" class="form-control" name="address" placeholder="3 allez des zinnias">
+          <input type="address" class="form-control" name="adress" placeholder="3 allez des zinnias">
           <label for="floatingInput">Adresse </label>
         </div>
         
@@ -134,65 +134,10 @@
             </div>
           </div>
         </div>
-          <!--debut question-->
-          <div class="row border mt-5 m-5 question">
-       
-          <div class="col-12 ">
-          <?php
-                    // Include config file
-                    require_once "config.php";
-                    
-                    // Attempt select query execution
-                    $sql = "SELECT * FROM employees";
-                    if($result = mysqli_query($link, $sql)){
-                        if(mysqli_num_rows($result) > 0){
-                            echo '<table  ">';
-                                echo "<thead>";
-                                    echo "<tr>";
-                            
-                                        echo "<th>Name</th>";
-
-                                        echo "<th>Action</th>";
-                                    echo "</tr>";
-                                echo "</thead>";
-                                echo "<tbody>";
-                                while($row = mysqli_fetch_array($result)){
-                                    echo "<tr>";
-                                     
-                                        echo "<td>" . $row['name'] . "</td>";
-
-                                        echo "<td>";
-                                            echo '              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                              Oui
-                                            </label>';
-                                            echo ' <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                            <label class="form-check-label" for="flexRadioDefault1">
-                                              Non
-                                            </label>';
-                                           
-                                        echo "</td>";
-                                    echo "</tr>";
-                                }
-                                echo "</tbody>";                            
-                            echo "</table>";
-                            // Free result set
-                            mysqli_free_result($result);
-                        } else{
-                            echo '<div class="alert alert-danger"><em>No records were found.</em></div>';
-                        }
-                    } else{
-                        echo "Oops! Something went wrong. Please try again later.";
-                    }
- 
-                    // Close connection
-                    mysqli_close($link);
-                    ?>
-          </div>
          
-        <!--fin question-->
         <input type="submit" value="Submit">
-</form> <!--formulaire fin -->
+</form>
+ <!--formulaire fin -->
       </div>
 
 

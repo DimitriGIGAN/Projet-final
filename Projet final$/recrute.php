@@ -21,9 +21,18 @@ $ville = mysqli_real_escape_string($link, $_REQUEST['ville']);
 $sql = "INSERT INTO recrute (nom, prenom, email,num,adress,postal,ville) VALUES ('$nom', '$prenom', '$email','$num', '$adress', '$postal','$ville')";
 if(mysqli_query($link, $sql)){
     echo "Records added successfully.";
+    header("location:questionnaire.php");
 } else{
     echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
+$sql = "INSERT INTO reponse  (solve) VALUES ('$solve')";
+if(mysqli_query($link, $sql)){
+    echo "Records added successfully.";
+
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+
  
 // Close connection
 mysqli_close($link);
