@@ -4,7 +4,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 31 Mars 2021 à 16:38
+-- Généré le :  Jeu 01 Avril 2021 à 16:50
 -- Version du serveur :  5.7.32-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -40,7 +40,7 @@ INSERT INTO `employees` (`id`, `name`) VALUES
 (27, 'Dimitrigigan@gmail.com'),
 (29, 'guhoi\r\n'),
 (30, 'la couleur est bleu ou violet'),
-(31, '');
+(32, '');
 
 -- --------------------------------------------------------
 
@@ -52,7 +52,7 @@ CREATE TABLE `recrute` (
   `id` int(11) NOT NULL,
   `nom` varchar(25) NOT NULL,
   `prenom` varchar(25) NOT NULL,
-  `email` varchar(25) NOT NULL,
+  `email` varchar(75) NOT NULL,
   `num` varchar(10) NOT NULL,
   `adress` varchar(100) NOT NULL,
   `postal` varchar(6) NOT NULL,
@@ -64,20 +64,30 @@ CREATE TABLE `recrute` (
 --
 
 INSERT INTO `recrute` (`id`, `nom`, `prenom`, `email`, `num`, `adress`, `postal`, `ville`) VALUES
-(1, 'Dimitri Pierre', 'GIGAN', 'Dimitrigigan@gmail.com', '0692893674', '', '97490', 'Sainte clotilde');
+(1, 'Dimitri Pierre', 'GIGAN', 'Dimitrigigan@gmail.com', '0692893674', '', '97490', 'Sainte clotilde'),
+(2, 'StÃ©phane', 'NARASSAMY', 'stephane.narassamy@ymanci.fr', '0692893674', '', '97400', 'Saint-Denis'),
+(3, 'StÃ©phane', 'NARASSAMY', 'stephane.narassamy@ymanci.fr', '0692893674', '', '97400', 'Saint-Denis'),
+(12, '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `réponse`
+-- Structure de la table `reponse`
 --
 
-CREATE TABLE `réponse` (
+CREATE TABLE `reponse` (
   `id` int(11) NOT NULL,
-  `IDQ` int(11) NOT NULL,
-  `IDU` int(11) NOT NULL,
-  `reponse` tinyint(1) NOT NULL
+  `idq` int(11) NOT NULL,
+  `idu` int(11) NOT NULL,
+  `solve` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `reponse`
+--
+
+INSERT INTO `reponse` (`id`, `idq`, `idu`, `solve`) VALUES
+(1, 27, 2, 'oui');
 
 -- --------------------------------------------------------
 
@@ -120,10 +130,12 @@ ALTER TABLE `recrute`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `réponse`
+-- Index pour la table `reponse`
 --
-ALTER TABLE `réponse`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `reponse`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idq` (`idq`),
+  ADD KEY `idu` (`idu`);
 
 --
 -- Index pour la table `users`
@@ -140,22 +152,33 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 --
 -- AUTO_INCREMENT pour la table `recrute`
 --
 ALTER TABLE `recrute`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT pour la table `reponse`
+--
+ALTER TABLE `reponse`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT pour la table `réponse`
---
-ALTER TABLE `réponse`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- Contraintes pour les tables exportées
+--
+
+--
+-- Contraintes pour la table `reponse`
+--
+ALTER TABLE `reponse`
+  ADD CONSTRAINT `reponse_ibfk_1` FOREIGN KEY (`idu`) REFERENCES `recrute` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `reponse_ibfk_2` FOREIGN KEY (`idq`) REFERENCES `employees` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
