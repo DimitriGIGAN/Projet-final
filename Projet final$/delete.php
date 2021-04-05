@@ -2,7 +2,7 @@
 $id=$_GET['id'];
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "gigan", "Simplon974@", "servicepro");
+$link = mysqli_connect("localhost", "servi1617577", "Simplon974", "servicepro");
  
 // Check connection
 if($link === false){

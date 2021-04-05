@@ -11,9 +11,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 echo "bienvenue ".$_SESSION["username"]; 
 if($_SESSION["username"]=="superadmin")
 {
-    echo "J'ai vérifié ton identité et tu peux supprimer des films";
+    echo "J'ai vérifié ton identité";
 }else {
-    echo "J'ai vérifié ton identité et tu ne peux pas supprimer des films";
+    echo "J'ai vérifié ton identité et tu es un un superadmin";
 
 }
 
