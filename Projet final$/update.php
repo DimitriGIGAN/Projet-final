@@ -7,7 +7,7 @@ $champ=$_GET['champ'];
 echo "ID : " . $id . "<br>Champs : " . $champ ." <br>";
 
 // Tentative de connexion au serveur MySQL. En supposant que vous exécutez MySQLserveur avec paramètre par défaut (utilisateur 'root' sans mot de passe)
-$link = mysqli_connect("localhost", "servi1617577", "Simplon974", "servi1617577");
+$link = mysqli_connect("185.98.131.148", "servi1617577", "Simplon974", "servi1617577");
  
 // Check connection
 if($link === false){
