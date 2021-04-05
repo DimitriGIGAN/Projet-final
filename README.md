@@ -1,10 +1,9 @@
-# Projet-final
 -- phpMyAdmin SQL Dump
 -- version 4.6.6deb5ubuntu0.5
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Jeu 01 Avril 2021 à 16:50
+-- Généré le :  Lun 05 Avril 2021 à 09:17
 -- Version du serveur :  5.7.32-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.24-0ubuntu0.18.04.7
 
@@ -18,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `question`
+-- Base de données :  `servicepro`
 --
 
 -- --------------------------------------------------------
@@ -29,18 +28,15 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `employees` (
   `id` int(11) NOT NULL,
-  `name` varchar(300) NOT NULL
+  `question` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `employees`
 --
 
-INSERT INTO `employees` (`id`, `name`) VALUES
-(27, 'Dimitrigigan@gmail.com'),
-(29, 'guhoi\r\n'),
-(30, 'la couleur est bleu ou violet'),
-(32, '');
+INSERT INTO `employees` (`id`, `question`) VALUES
+(41, 'Animation');
 
 -- --------------------------------------------------------
 
@@ -67,7 +63,10 @@ INSERT INTO `recrute` (`id`, `nom`, `prenom`, `email`, `num`, `adress`, `postal`
 (1, 'Dimitri Pierre', 'GIGAN', 'Dimitrigigan@gmail.com', '0692893674', '', '97490', 'Sainte clotilde'),
 (2, 'StÃ©phane', 'NARASSAMY', 'stephane.narassamy@ymanci.fr', '0692893674', '', '97400', 'Saint-Denis'),
 (3, 'StÃ©phane', 'NARASSAMY', 'stephane.narassamy@ymanci.fr', '0692893674', '', '97400', 'Saint-Denis'),
-(12, '', '', '', '', '', '', '');
+(12, '', '', '', '', '', '', ''),
+(13, 'GIGAN', 'Dimitri Pierre', 'Dimitrigigan@gmail.com', '0692893674', '3 allez des zinnias', '97490', 'Sainte clotilde'),
+(14, 'NARASSAMY', 'StÃ©phane', 'stephane.narassamy@ymanci.fr', '', '', '97400', 'Saint-Denis'),
+(15, 'NARASSAMY', 'StÃ©phane', 'stephane.narassamy@ymanci.fr', '', '', '97400', 'Saint-Denis');
 
 -- --------------------------------------------------------
 
@@ -81,13 +80,6 @@ CREATE TABLE `reponse` (
   `idu` int(11) NOT NULL,
   `solve` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `reponse`
---
-
-INSERT INTO `reponse` (`id`, `idq`, `idu`, `solve`) VALUES
-(1, 27, 2, 'oui');
 
 -- --------------------------------------------------------
 
@@ -108,10 +100,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `created_at`) VALUES
 (1, 'Simplon', '$2y$10$h05W7i/3j8NC/J6P6dmvxO/YAWMGmhAnKLIegNge78S1wHvKc3NoK', '2021-02-03 13:37:48'),
-(2, 'superadmin', '$2y$10$syPSU0yXb1Wkj.w2lxLQ2ONkWiTPxIF14.TlZ4KWOKla.LQ1KWSBq', '2021-02-03 13:58:18'),
+(2, 'superadmin', '$2y$10$OIWR0.Gu1N2wTgFTz3YDlOAJ6WR3Mo0pIDOCrzex7K92C2qZwMzCi\r\n', '2021-02-03 13:58:18'),
 (3, 'dimitrigigan', '$2y$10$7SC1V1X4ej7SZq.iVYldI.1LomiNtNR1onqlXwV8/a.R5J5UKARQO', '2021-03-22 07:41:08'),
 (4, 'bege', '$2y$10$tZWw8gyWkfcvJa7dufuVh.vI222g7OoHqCl/GliNBQM4Qrg/aaf1G', '2021-03-23 09:19:18'),
-(5, 'abel', '$2y$10$lRNYvMZ3XurJXvOHKb/Hb.KQa.mieYYmDUxxe/dEaoT9kwPKp82.i', '2021-03-23 10:48:43');
+(5, 'abel', '$2y$10$lRNYvMZ3XurJXvOHKb/Hb.KQa.mieYYmDUxxe/dEaoT9kwPKp82.i', '2021-03-23 10:48:43'),
+(6, 'yugi', '$2y$10$yg1A9yk61fawIJcUrhXC5uCfOhBB3PjkcDZKQ/J8e7BmUfAWcawhO', '2021-04-05 08:48:22');
 
 --
 -- Index pour les tables exportées
@@ -152,12 +145,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 --
 -- AUTO_INCREMENT pour la table `recrute`
 --
 ALTER TABLE `recrute`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT pour la table `reponse`
 --
@@ -167,7 +160,7 @@ ALTER TABLE `reponse`
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- Contraintes pour les tables exportées
 --
