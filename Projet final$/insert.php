@@ -1,7 +1,7 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "gigan", "Simplon974@", "question");
+$link = mysqli_connect("localhost", "gigan", "Simplon974@", "servicepro");
  
 // Check connection
 if($link === false){
@@ -9,11 +9,11 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$name = mysqli_real_escape_string($link, $_REQUEST['name']);
+$question = mysqli_real_escape_string($link, $_REQUEST['question']);
 
  
 // attempt insert query execution
-$sql = "INSERT INTO employees (name) VALUES ('$name')";
+$sql = "INSERT INTO employees (question) VALUES ('$question')";
 if(mysqli_query($link, $sql)){
     echo "Records inserted successfully.";
 
@@ -22,7 +22,7 @@ if(mysqli_query($link, $sql)){
 }
  
 // close connection
-
+header('Location: question.php');
 mysqli_close($link);
 
 ?>

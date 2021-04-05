@@ -32,7 +32,7 @@
   <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("localhost", "gigan", "Simplon974@", "question");
+$link = mysqli_connect("localhost", "gigan", "Simplon974@", "servicepro");
  
 // Check connection
 if($link === false){
@@ -89,7 +89,30 @@ mysqli_close($link);
 
     </div>
    
+<!-- Footer -->
+<footer class="bg-light  text-lg-start">
+ 
+  <div class="container">
+  
+    <div class="row">
+    
 
+      
+      </div>
+     
+    </div>
+   
+  </div>
+
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © Service Pro 2021 Copyright
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
 </body>
 
 </html>

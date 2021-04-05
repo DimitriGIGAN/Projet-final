@@ -2,7 +2,6 @@
 
 <?php 
  // Récuperation de l'id //
-
  $id=$_GET['id'];
 
 
@@ -27,33 +26,59 @@
     <!-- Image and text -->
     <nav class="navbar ">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="index.php">
           <img src="img/Service Pro.png" alt="" width="30" height="24" class="d-inline-block align-top">
           SERVICE PRO
         </a>
       </div>
     </nav>
+    
   </header>
+ 
+<div class="row">
+  <div class="col-2"> 
+  <div class="d-flex flex-column p-3 text-white bg-dark" style="width: 280px;">
 
-  <div class="row">
-    <div class="col-4"></div>
-    <div class="col-4 mt-5">
-      <H1>AJOUT DE QUESTION </H1>
-    </div>
-    <div class="col-4"></div>
+  <hr>
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a href="index.php" class="nav-link active">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="xvx.php"/></svg>
+        Page d'accueil 
+      </a>
+    </li>
+    <li>
+      <a href="logout.php" class="nav-link text-white">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+       Deconnexion
+      </a>
+    </li>
+   
+  </ul>
+
   </div>
-  <div class="row p-5 ">
+  <hr>
+</div>
+  <div class="col-10">
+  <div class="row">
+
+    <div class="col-12">
+      <H1 class="bg-dark text-white text-center" >AJOUT DE QUESTION </H1>
+    </div>
+
+  </div>
+  <div class="row m-5">
 
     <div class="col-4">
 
       <div class="col-sm-12">
-        <h2 class="bg-dark text-white text-center">Ajouter une question </h2>
+        <h2 class=" text-white text-center">Ajouter une question </h2>
       </div>
 
       <form action="insert.php" method="post">
     
-      <textarea name="name" class="form-control <?php echo (!empty($name_err)) ? 'is-invalid' : ''; ?>"><?php echo $name; ?></textarea>
-                            <span class="invalid-feedback"><?php echo $name_err;?></span>
+      <textarea name="question" class="form-control <?php echo (!empty($question_err)) ? 'is-invalid' : ''; ?>"><?php echo $question; ?></textarea>
+                            <span class="invalid-feedback"><?php echo $question_err;?></span>
       
           <button type="submit" class="btn btn-primary mt-2 col-12" value="Submit">Valider</button>
      
@@ -81,25 +106,24 @@
                     $sql = "SELECT * FROM employees";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
-                            echo '<table class="table table-bordered table-striped">';
+                            echo '<table class="table  table-striped">';
                                 echo "<thead>";
                                     echo "<tr>";
                                         echo "<th>#</th>";
-                                        echo "<th>Name</th>";
+                                        echo "<th>Question</th>";
 
-                                        echo "<th>Action</th>";
+                                        echo "<th></th>";
                                     echo "</tr>";
                                 echo "</thead>";
                                 echo "<tbody>";
                                 while($row = mysqli_fetch_array($result)){
                                     echo "<tr>";
                                         echo "<td>" . $row['id'] . "</td>";
-                                        echo "<td>" . $row['name'] . "</td>";
+                                        echo "<th>".$row['question']."<a href=\"modifier.php?id=".$row['id']."&" . "champ=question\">🖊</a></th>\n";
 
                                         echo "<td>";
-                                            echo '<a href="read.php?id='. $row['id'] .'" class="mr-3" title="View Record" data-toggle="tooltip"><span class="fa fa-eye"></span></a>';
-                                            echo '<a href="update.php?id='. $row['id'] .'" class="mr-3" title="Update Record" data-toggle="tooltip"><span class="fa fa-pencil"></span></a>';
-                                            echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
+                                          
+                                        echo '<a href="delete.php?id='. $row['id'] .'" title="Delete Record" data-toggle="tooltip"><span class="fa fa-trash"></span></a>';
                                         echo "</td>";
                                     echo "</tr>";
                                 }
@@ -137,6 +161,35 @@
 
   </div>
 
+  </div>
+</div>
+ 
+
+<!-- Footer -->
+<footer class="bg-light  text-lg-start">
+ 
+  <div class="container">
+  
+    <div class="row">
+    
+
+      
+      </div>
+     
+    </div>
+   
+  </div>
+
+
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © Service Pro 2021 Copyright
+    
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+      
 </body>
 
 </html>

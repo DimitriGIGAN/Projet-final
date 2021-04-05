@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: welcome.php");
+
     exit;
 }
  
@@ -108,6 +108,30 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 
 <body>
+<header>
+    <!-- Image and text -->
+    <nav class="navbar ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">
+          <img src="img/Service Pro.png" alt="" width="30" height="24" class="d-inline-block align-top">
+          SERVICE PRO
+        </a>
+        <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="register.php">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="select_all.php">Recrutement</a>
+  </li>
+
+
+</ul>
+      </div>
+    </nav>
+  </header>
     <div class="row p-2">
         <div class="col-5"></div>
         <div class="col-2">

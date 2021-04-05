@@ -98,22 +98,57 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>register</title>
+
 </head>
 <body>
-    <div class="wrapper">
-        <h2>Sign Up</h2>
-        <p>Please fill this form to create an account.</p>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-            <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-                <label>Username</label>
+<header>
+    <!-- Image and text -->
+    <nav class="navbar ">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">
+          <img src="img/Service Pro.png" alt="" width="30" height="24" class="d-inline-block align-top">
+          SERVICE PRO
+        </a>
+        <ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="register.php">Register</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="select_all.php">Recrutement</a>
+  </li>
+
+
+</ul>
+      </div>
+    </nav>
+  </header>
+    <div class="row p-2">
+        <div class="col-5"></div>
+        <div class="col-2">
+        <?php 
+        if(!empty($login_err)){
+            echo '<div class="alert alert-danger">' . $login_err . '</div>';
+        }        
+        ?>
+       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+       <img src="img/Service Pro.png" class="rounded mx-auto d-block img-thumbnail" alt="...">
+       <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
+               
+       <label>Username</label>
                 <input type="text" name="username" class="form-control" value="<?php echo $username; ?>">
                 <span class="help-block"><?php echo $username_err; ?></span>
             </div>    
@@ -132,7 +167,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <input type="reset" class="btn btn-default" value="Reset">
             </div>
             <p>Already have an account? <a href="login.php">Login here</a>.</p>
-        </form>
-    </div>    
+        </form></div>
+        <div class="col-5"></div>
+    </div>
+   
 </body>
 </html>
